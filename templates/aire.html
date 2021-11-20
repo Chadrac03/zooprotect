@@ -1,0 +1,340 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A.P</title>
+   <!-- Favicons -->
+   <link href="assets/img/favicon.png" rel="icon">
+   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+ 
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+ 
+   <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css'%} " rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %} " rel="stylesheet">
+ 
+</head>
+<body>
+
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{% url 'racine' %}"><span>ZOO</span><img src="{% static 'img/actualités/logo.png' %}" alt="" style="background-size: cover; width: 30%;"> PROTECT</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="{% url 'racine' %}" class="active">Acceuil</a></li>
+
+          <li class="dropdown"><a href="{% url 'ap' %}">Aires Protégés</a>
+            <ul>
+              <li><a href="{% url 'gestionnaire' %}">Gestion des A.P</a></li>
+              <li><a href="{% url 'departement' %}">Delits par departements</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="{% url 'animaux' %}">Animaux Protégés</a>
+            <ul>
+              <li><a href="{% url 'partielanimal' %}">Partiellement Protégés</a></li>
+              <li><a href="{% url 'totalanimal' %}">Totalement Protégés</a></li>
+              <li><a href="{% url 'chasse' %}">méthodes et techniques de chasse interdites</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="{% url 'loi' %}">Legislation</a>
+            <ul>
+                <li><a href="{% url 'delit' %}">délits en matière de criminalité faunique</a></li>
+            </ul>
+          </li>
+
+          <li><a href="{% url 'quizz' %}">QuiZZ</a></li>
+          <li><a href="{% url 'forum' %}">Forum </a></li>
+          <!--
+          <li><a href="#"> <img src="{% static 'img/actualités/ameriques.jpg' %}" style="width:20px ; height:20px"> </a></li>
+          <li><a href="#"> <img src="{% static 'img/icons/france.png' %}" style="width:20px ; height:20px"> </a></li>
+          -->
+          <li class=""> <a href="{% url 'twilio' %}"> <img src="{% static 'img/actualités/alarm_bell_22298.png' %} " alt=""  style="width: 50%"></a></li>
+            <div class="modal">
+                <div class="modal-content">
+                  <img src="{% static 'img/actualités/alerte.jpg' %}" alt="" width="25%" style="align-self: center;">
+                  <hr>
+                </div>
+
+                <form action="{% url 'generer' %}" method="post" entype="multipart/form-data" >
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="tel" class="control-label">Telephone : </label>
+                      <input type="text" class="form-control" id="tel" placeholder="+243064362084" name="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="comment"> message :</label>
+                      <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="tel" class="control-label">Telephone : </label>
+                      <input type="text" class="form-control" id="tel" placeholder="+243064362084" name="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" class="form-control-file border" name="file">
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-danger" style="float: right;">Quitter</button>
+                </form>
+            </div>
+          </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      
+      <div class="header-social-links d-flex">
+ 
+        <!--a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a-->
+
+    </div>
+  </header><!-- End Header -->
+  
+<main id="main">
+
+  <!-- ======= About Us Section ======= -->
+  <section id="about-us" class="about-us">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row content">
+        <div class="col-lg-12">
+            <img src="{% static 'img/actualités/ap/R.gif' %} " alt="Carte des arp" class="img-fluid">
+        </div>
+        <div class="col-lg-12 ">
+          <p>
+              <marquee behavior="" direction=""><h1 style="color:darkgreen;">Carte des Aires Protegés</h1></marquee> 
+              En République du  Congo, les aires protégées sont gérées par un Conservateur qui dépend administrativement de l'Agence Congolaise de la Faune et des Aires Protégées (ACFAP). Pour les aires protégées gérées en partenariat, il y'a un Conservateur représentant la partie congolaise assisté d'un Conseiller principal technique, représentant le Partenaire. Les aires protégées du Congo incluent l'océan, les savanes, les forêts marécageuses, les forêts de terre ferme, les forêts montagneuses, les lacs et lagunes offrant une grande diversité aquatique et terrestre.
+
+              S'agissant de l'océan, nous pouvons citer le cas de Conkouati-Douli. On n'y trouve aussi des sites archéologiques, des sanctuaires et d'autres sites naturels comme les cascades et les rapides. Plusieurs activités sont menées dans ces zones. Au nombre de celles-ci, la surveillance, la recherche scientifique sur les espèces qui existent, le tourisme, la sensibilisation et l'éducation environnementale, la chasse qui se pratique dans les zones de chasse, les activités socio-économiques, la maintenance et la logistique qui consistent à l'entretien des pistes, véhicules et autres infrastructures, au ravitaillement, à l'équipement. Toutes ces activités sont animées par des chefs de volets qui font une planification dans le temps, le tout sous la coordination du Conservateur.
+              
+              Ce dernier, pour réussir sa tâche, s'appuie sur un arsenal juridique, humain, matériel et financier. En dehors du personnel évoluant dans la zone de conservation, les visiteurs de même que les chercheurs, peuvent y avoir accès, moyennant un permis d'entrée ou de recherche. Toutefois, il est interdit à toute personne étrangère de pénétrer dans la zone de protection intégrale. Les populations riveraines interviennent également dans la gestion de ces zones. Leur rôle est primordial dans le choix du zonage en vue de l'élaboration du plan d'aménagement. 
+          </p>
+             <hr>
+        </div>
+        <div class="row content">
+          <div class="col-lg-6">
+            <img src="{% static 'img/actualités/Forets/1bcb7642.jpg' %} " alt="" class="img-thumbnails" style="border-radius: 20%; background-size: cover;">
+        </div>
+        <div class="col-lg-6" >
+          <p>
+              <ul style="text-align: left; margin-left: 10%;">
+                <li><h2>Parc National de Nouabalé Ndoki</h2></li>
+                <li>Année de création : 1993 et 2012</li>
+                <li>Superficie actuelle (ha): 423.870</li>
+                <li>Nouvelle Superficie classée (ha): 369.592</li>
+                <li>Localisation : Sangha et Likouala à près de 2.000 Km de Brazzaville</li>
+                <li>Espèces dominante: Loxodonta africana cyclotis, Tragelaphus Bocérus, Gorilla gorilla  gorilla ophagraphe, Hylochoerus meinertzhagen</li>
+                <li>Financement : WCS / USAID / CARPE / GEF</li>
+                <li>Réalisation majeure : - Infrastructures d’hébergement
+                  - Postes de recherche
+                  - Miradors
+                  - Postes de contrôle
+                  - Equipements informatique et communication à base vie.</li>
+
+              </ul>
+          </p>
+      </div>
+   </div>
+ 
+  <hr>
+       <div class="row content"> 
+        <div class="col-lg-6">     
+            <img src="{% static 'img/actualités/Forets/1bcb7642.jpg' %} " alt="" class="img-thumbnails" style="border-radius: 20%; background-size: cover;">
+        </div>
+          <div class="col-lg-6">
+            <p>
+              <ul style="text-align: left; margin-left: 10%; text-decoration: none;">
+                <h2>Parc National d’Odzala- Kokoua</h2>
+                <li>Année de création : 1935-2003</li>
+                <li>Superficie actuelle (ha): 1.354.600</li>
+                <li>Nouvelle Superficie classée (ha):1.228.600</li>
+                <li>Localisation : Cuvette Ouest à 800 Km de Brazzaville</li>
+                <li>Espèces dominante: Sincerus cafernams, Hypopotamus amphibus, Loxodonta africana cyclotis (éléphant), Tragelaphus Bocerus, Gorilla gorilla gorilla ophagraphe, Hylochoerus meinertzhageni</li>
+                <li>Financement :Union Européenne</li>
+                <li>Réalisation majeure : - Infrastructures d’hébergement
+                  - Postes de contrôle
+                  - Projet d’aménagement, Etudes, Inventaires
+                  - Formation
+                  - Postes de recherche
+                  - Miradors</li>
+                  <li>Observations : Déploiement des éco-gardes pour lutter contre le braconnage.</li>
+              </ul>
+          </p>
+          </div>
+     </div>
+    <hr>
+
+     <div class="row content"> 
+      <div class="col-lg-8">     
+          <img src="{% static 'img/actualités/Forets/Vange (274).jpg' %} " alt="" style="border-radius: 20%; background-size: cover;">
+      </div>
+        <div class="col-lg-4">
+          <p>
+            <ul style="text-align: left; margin-left: 10%; text-decoration: none;">
+              <h2>Parc National de Conkouati Douli</h2>
+              <li>Année de création : 1999</li>
+              <li>Superficie actuelle (ha): 504.950</li>
+              <li>Nouvelle Superficie classée (ha):360.654</li>
+              <li>Localisation : Kouilou à 150 Km de P/noire</li>
+              <li>Espèces dominante: Teichechus senegalalensis (lamantin), Loxodonta africana cyclotis, Gorilla gorilla gorilla, Pan troglodytes troglodytes, Papio sphinx (mandrill), Hyppopotamus amphibius, Kobus defassa</li>
+              <li>Financement :Fonds WCS</li>
+                <li>Observations : Financement recherché pour la poursuite des activités en latence.</li>
+            </ul>
+        </p>
+        </div>
+   </div>
+   <hr>
+
+   <div class="row content"> 
+    <div class="col-lg-8">     
+        <img src="{% static 'img/actualités/Forets/3d-animated-nature-wallpaper.jpg' %} " alt="" class="img-thumbnails" style="border-radius: 20%; background-size: cover;">
+    </div>
+      <div class="col-lg-4">
+        <p>
+          <ul style="text-align: left; margin-left: 10%; text-decoration: none;">
+            <h2>Parc National de Tokou-Pikounda</h2>
+            <li>Année de création : 4 mars 2013</li>
+            <li>Superficie actuelle (ha): 427.200</li>
+            <li>Localisation : Cuvette-Sangha</li>
+            <li>Espèces dominante: Hypopotamus, Eléphants, Gorilles, Chimpanzés, Potamochères, Hylochères</li>
+            <li>Financement :Fonds Forestier</li>
+            <li>Réalisation majeure :- Equipement nautique
+              - Construction d'une base vie
+              - Acquisition du matériel informatique</li>
+              <li>Observations : Financement recherché</li>
+          </ul>
+      </p>
+      </div>
+ </div>
+<hr>
+
+<div class="row content"> 
+  <div class="col-lg-6">     
+      <img src="{% static 'img/actualités/Forets/services_parc_img1-4.jpg' %} " alt="" class="img-thumbnails" style="border-radius: 20%; background-size: cover;">
+  </div>
+    <div class="col-lg-6">
+      <p>
+        <ul style="text-align: left; margin-left: 10%; text-decoration: none;">
+          <h2>Réserve de La Léfini</h2>
+          <li>Année de création : 1951 et en extension en 1963</li>
+          <li>Superficie actuelle (ha): 1.354.600</li>
+          <li>Localisation : Pool- Plateaux</li>
+          <li>Espèces dominante: Loxodonta africana cyclotis (élephant), Gorilla gorilla, Cephalophus, sylvicultor</li>
+            <li>Observations :Financement recherché pour la poursuite des activités</li>
+        </ul>
+    </p>
+    </div>
+</div>
+<hr>
+</div>
+  </section><!-- End About Us Section -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>ZOOPROTECT</h3>
+            <p>
+              09 Rue Ngouendi<br>
+              Brazzaville, Talangai<br>
+              Congo <br><br>
+              <strong>Phone:</strong>+242-06-436-20-84<br>
+              <strong>Email:</strong>mongochadrac@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Liens Utiles</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Acceuil</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="aire.html">Aires Protegés</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="animaux.html">Animaux Protégés</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="lois.html">Legislation</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="forum.html">forum</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Nos Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Design Web</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement Web</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement mobile</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Development Desktop</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Joindre notre boite aux lettre</h4>
+            <p>fais un geste pour l'évolution de la faune.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>ZOOPROTECT</span></strong>. All Rights Reserved
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/aos/aos.js' %} "></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %} "></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %} "></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %} "></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %} "></script>
+  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %} "></script>
+  <script src="{% static 'js/jquery-3.6.0.js' %} "></script>
+  <script src="{% static 'js/quizz.js' %} "></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %} "></script>
+
+  
+</body>
+</html>

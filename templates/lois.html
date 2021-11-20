@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css'%} " rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %} " rel="stylesheet">
+
+</head>
+<body>
+   <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{% url 'racine' %}"><span>ZOO</span><img src="{% static 'img/actualités/logo.png' %}" alt="" style="background-size: cover; width: 30%;"> PROTECT</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="{% url 'racine' %}" class="active">Acceuil</a></li>
+
+          <li class="dropdown"><a href="{% url 'ap' %}">Aires Protégés</a>
+            <ul>
+              <li><a href="{% url 'gestionnaire' %}">Gestion des A.P</a></li>
+              <li><a href="{% url 'departement' %}">Delits par departements</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="{% url 'animaux' %}">Animaux Protégés</a>
+            <ul>
+              <li><a href="{% url 'partielanimal' %}">Partiellement Protégés</a></li>
+              <li><a href="{% url 'totalanimal' %}">Totalement Protégés</a></li>
+              <li><a href="{% url 'chasse' %}">méthodes et techniques de chasse interdites</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="{% url 'loi' %}">Legislation</a>
+            <ul>
+                <li><a href="{% url 'delit' %}">délits en matière de criminalité faunique</a></li>
+            </ul>
+          </li>
+
+          <li><a href="{% url 'quizz' %}">QuiZZ</a></li>
+          <li><a href="{% url 'forum' %}">Forum </a></li>
+          <li><a href="#"> <img src="{% static 'img/actualités/ameriques.jpg' %}" style="width:30px ; height:30px"> </a></li>
+          <li><a href="#"> <img src="{% static 'img/icons/france.png' %}" style="width:20px ; height:20px"> </a></li>
+          <li class=""> <a href="{% url 'twilio' %}"> <img src="{% static 'img/actualités/alarm_bell_22298.png' %} " alt=""  style="width: 50%"></a></li>
+            <div class="modal">
+                <div class="modal-content">
+                  <img src="{% static 'img/actualités/alerte.jpg' %}" alt="" width="25%" style="align-self: center;">
+                  <hr>
+                </div>
+
+                <form action="{% url 'generer' %}" method="post" entype="multipart/form-data" >
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="tel" class="control-label">Telephone : </label>
+                      <input type="text" class="form-control" id="tel" placeholder="+243064362084" name="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="comment"> message :</label>
+                      <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="tel" class="control-label">Telephone : </label>
+                      <input type="text" class="form-control" id="tel" placeholder="+243064362084" name="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" class="form-control-file border" name="file">
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-danger" style="float: right;">Quitter</button>
+                </form>
+            </div>
+          </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      
+      <div class="header-social-links d-flex">
+ 
+        <!--a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a-->
+
+    </div>
+  </header><!-- End Header -->
+
+  
+      <div class="row">
+          <br>
+
+      </div>
+<section id="about-us" class="about-us">
+  <div class="container">
+  <div class="row" >
+  <div class="col-lg-12"> 
+  
+  <h2>Le Cadre juridique de la gestion forestière au Congo</h2>
+ <p>
+  La forêt congolaise est une ressource qui subit beaucoup d’interventions des acteurs dont les activités relèvent de différents ministères. A cet effet, les pouvoirs publics ont réglementé ces interventions selon leur domaine de compétence par une série de textes juridiques. Si l’analyse du cadre juridique de gestion forestière permet d’identifier un certain nombre d’atouts, des faiblesses importantes peuvent aussi être relevées.
+</p>
+
+  <p>
+  Les atouts
+  Du fait de son étendue et de la variété de ses fonctions, la forêt congolaise subit des interventions diverses ayant amené les pouvoirs publics à prendre toute une série de textes juridiques, en plus de la constitution du 20 janvier 2002.Les principaux textes, qui contribuent directement ou indirectement à la gestion durable des ressources forestières, sont les suivants : 
+  </p>
+
+  <p>
+  <span class="bi bi-award-fill"><b>la loi n°16-2000 du 20 novembre 2000</b></span> portant code forestier. Ce texte vise en priorité à instituer un cadre juridique approprié pour assurer la conservation et la gestion durable des forêts, sur la base d’un aménagement rationnel et d’une gestion participative des ressources. Cette loi fondamentale est renforcée par une série de textes subséquents, notamment le décret 2002-437 du 31 décembre 2002 qui fixe les conditions de gestion et d’utilisation des forêts et les arrêtés ministériels portant sur les directives nationales d’aménagement durable des concessions forestières, la création des unités forestières d’aménagement ou d’exploitation, les modalités de classement et de déclassement des forêts, la fiscalité forestière, etc. ;
+  <p>
+  <span class="bi bi-award-fill"><b>la loi n°37-2008 du 28 novembre 2008</b></span> sur la faune et les aires protégées. Cette loi renforce les législations sectorielles, notamment celles relatives à la préservation de la faune et de la flore sauvage ; elle fixe les principes fondamentaux et les conditions générales de conservation et de gestion durable de la faune, des habitats et des écosystèmes dont elle dépend ;
+  la loi n°03-1991 du 23 avril 1991 sur la protection de l’environnement. Cette loi a été prise pour renforcer la législation antérieure, notamment en ce qui concerne :
+  a) la protection et la préservation de la faune et de la flore sauvages, des ressources marines et fluviales ;
+  b) l’exploitation des installations dangereuses, insalubres ou incommodes ;
+  c) la gestion, le maintien, la restauration et la protection ou la conservation des ressources naturelles, le patrimoine culturel, naturel et historique ;
+  d) la prévention et la lutte contre les atteintes à l’environnement et à la santé des personnes et à leurs biens ;
+</p>
+<p>
+  <span class="bi bi-award-fill"><b>la loi n°4-2005 du 11 avril 2005</b></span> portant code minier. Ce texte régit la prospection, la recherche, l’exploitation, la détention, la circulation et la transformation des substances minérales ou fossiles sur l’ensemble du territoire national. Des dispositions sont prises sur les mesures à prendre lorsque  l’exploitation minière se mène en milieu forestier, en particulier pour assurer l’intégrité des zones dégradées ;
+</p>
+<p>
+  <span class="bi bi-award-fill"><b>la loi n°24-1994 du 23 août 2004</b></span>, portant code des hydrocarbures. Cette loi met en exergue les mesures relatives à la discipline, la sécurité et la protection de l’environnement dans les activités de recherche, d’exploration, de stockage et de transport des hydrocarbures ;</p>
+
+  les lois relatives au foncier. Il s’agit des lois suivantes : 
+  <p><span class="bi bi-award-fill"><b>Loi n°9-2004 du 26 mars 2004</b> </span>portant code du domaine de l’Etat. Ce texte définit le domaine public de l’Etat pouvant être mis à la disposition du public usager ou affecté à un service public. Il indique également les conditions d’expropriation, notamment la mobilisation des terres et des terrains pour les besoins de développement économique ;</p>
+  <p>
+    <span class="bi bi-award-fill"><b>Loi n°10-2004 du 26 mars 2004</b></span> fixant les principes généraux applicables aux régimes domanial et foncier ;
+  </p>
+  
+  <p><span class="bi bi-award-fill"><b>Loi n°11-2004 du 26 mars 2004</b> </span>portant procédure d’expropriation pour cause d’utilité publique ;</p>
+  <p><span class="bi bi-award-fill"><b>Loi n°13-2004 du 31 mars 2004</b></span> relative aux activités de promotion immobilière et de construction d’ouvrages de bâtiments.</p>
+
+  <p>
+  Les faiblesses
+  En dépit de l’existence de ces textes juridiques fondamentaux, plusieurs contraintes sont cependant relevées dans la perspective d’une gestion durable des forêts. On peut retenir notamment ce qui suit :
+</p>
+<p>
+ <span class="bi bi-award"></span> le comité interministériel de concertation, mis en place dans une perspective de gestion et d’utilisation intégrées des espaces et des ressources naturelles et dirigé par le Premier ministre, n’a jamais fonctionné jusqu’à ce jour ;
+</p>
+<p>
+ <span class="bi bi-award"></span> les textes d’application de la loi 37-2008 du 28 novembre 2008 sur la faune et les aires protégées n’ont pas encore été publiés. De ce fait, les aires protégées continuent à fonctionner sur la base des décrets spécifiques créant chacune d’elles et qui en fixe le type et le statut ;
+</p>
+<p>
+ <span class="bi bi-award"></span>les interventions du secteur agricole, bien que pouvant avoir un impact important sur la forêt, ne sont régis par aucune loi ;
+  le Congo ne dispose pas jusqu’à ce jour d’un plan national d’affectation des terres devant prévoir l’usage des différents espaces nationaux, dont les forêts ;
+</p>
+Le schéma national d’aménagement du territoire (SNAT) de 2005, aujourd’hui assez peu adapté aux besoins de développement national, reste encore le document stratégique de base pour les actions transversales de ce département. On note cependant que la loi d’orientation de l’aménagement du territoire, appelée à remplacer le SNAT, est aujourd’hui en examen au Parlement.
+ </p>
+</div>
+  </div>
+  <div class="row">
+    <h2>TEXTES DE LOIS ET DECRETS</h2>
+      <div class="col-lg-12">
+          <p>
+            <a href=""><span class="bi bi-file-earmark-arrow-down"></span> Arreté N°35-026 /MEFDD/CAB-portant retour au domaine des UFE Nkola, Kola et Loumongo</a>
+          </p>
+          <p>
+            <a href=""><span class="bi bi-file-earmark-arrow-down"></span> Arreté N°35-026 /MEFDD/CAB-portant retour au domaine des UFE Nkola, Kola et Loumongo</a>
+          </p>
+          <p>
+            <a href=""><span class="bi bi-file-earmark-arrow-down"></span> Arreté N°35-026 /MEFDD/CAB-portant retour au domaine des UFE Nkola, Kola et Loumongo</a>
+          </p>
+          <p>
+            <a href=""><span class="bi bi-file-earmark-arrow-down"></span> Arreté N°35-026 /MEFDD/CAB-portant retour au domaine des UFE Nkola, Kola et Loumongo</a>
+          </p>
+          <p>
+            <a href=""><span class="bi bi-file-earmark-arrow-down"></span> Arreté N°35-026 /MEFDD/CAB-portant retour au domaine des UFE Nkola, Kola et Loumongo</a>
+          </p>
+          <p>
+            <a href=""><span class="bi bi-file-earmark-arrow-down"></span> Arreté N°35-026 /MEFDD/CAB-portant retour au domaine des UFE Nkola, Kola et Loumongo</a>
+          </p>
+      </div>
+  </div>
+  </div>
+</section>    
+
+<footer id="footer">
+
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>ZOOPROTECT</h3>
+          <p>
+            09 Rue Ngouendi<br>
+            Brazzaville, Talangai<br>
+            Congo <br><br>
+            <strong>Phone:</strong>+242-06-436-20-84<br>
+            <strong>Email:</strong>mongochadrac@gmail.com<br>
+          </p>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Liens Utiles</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="index.html">Acceuil</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="aire.html">Aires Protegés</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="animaux.html">Animaux Protégés</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="lois.html">Legislation</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="forum.html">forum</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Nos Services</h4>
+          <ul>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Design Web</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement Web</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement mobile</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Development Desktop</a></li>
+            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-newsletter">
+          <h4>Joindre notre boite aux lettre</h4>
+          <p>fais un geste pour l'évolution de la faune.</p>
+          <form action="" method="post">
+            <input type="email" name="email"><input type="submit" value="Subscribe">
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-md-flex py-4">
+
+    <div class="me-md-auto text-center text-md-start">
+      <div class="copyright">
+        &copy; Copyright <strong><span>ZOOPROTECT</span></strong>. All Rights Reserved
+      </div>
+    </div>
+    <div class="social-links text-center text-md-right pt-3 pt-md-0">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+  </div>
+</footer><!-- End Footer --> 
+
+ <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/aos/aos.js' %} "></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %} "></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %} "></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %} "></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %} "></script>
+  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %} "></script>
+  <script src="{% static 'js/jquery-3.6.0.js' %} "></script>
+  <script src="{% static 'js/quizz.js' %} "></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %} "></script>
+
+</body>
+</html>

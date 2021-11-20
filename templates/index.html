@@ -1,0 +1,567 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ZOOPROTECT | Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css'%} " rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %} " rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- GTranslate: https://gtranslate.io/ -->
+<a href="#" onclick="doGTranslate('fr|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="English" /></a><a href="#" onclick="doGTranslate('fr|fr');return false;" title="French" class="gflag nturl" style="background-position:-200px -100px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="French" /></a><a href="#" onclick="doGTranslate('fr|de');return false;" title="German" class="gflag nturl" style="background-position:-300px -100px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="German" /></a><a href="#" onclick="doGTranslate('fr|it');return false;" title="Italian" class="gflag nturl" style="background-position:-600px -100px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="Italian" /></a><a href="#" onclick="doGTranslate('fr|pt');return false;" title="Portuguese" class="gflag nturl" style="background-position:-300px -200px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="Portuguese" /></a><a href="#" onclick="doGTranslate('fr|ru');return false;" title="Russian" class="gflag nturl" style="background-position:-500px -200px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="Russian" /></a><a href="#" onclick="doGTranslate('fr|es');return false;" title="Spanish" class="gflag nturl" style="background-position:-600px -200px;"><img src="//gtranslate.net/flags/blank.png" height="16" width="16" alt="Spanish" /></a>
+
+<style type="text/css">
+a.gflag {vertical-align:middle;font-size:16px;padding:1px 0;background-repeat:no-repeat;background-image:url(//gtranslate.net/flags/16.png);}
+a.gflag img {border:0;}
+a.gflag:hover {background-image:url(//gtranslate.net/flags/16a.png);}
+#goog-gt-tt {display:none !important;}
+.goog-te-banner-frame {display:none !important;}
+.goog-te-menu-value:hover {text-decoration:none !important;}
+body {top:0 !important;}
+#google_translate_element2 {display:none!important;}
+</style>
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{% url 'racine' %}"><span>ZOO</span><img src="{% static 'img/actualités/logo.png' %}" alt="" style="background-size: cover; width: 30%;"> PROTECT</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="{% url 'racine' %}" class="active">Acceuil</a></li>
+
+          <li class="dropdown"><a href="{% url 'ap' %}">Aires Protégés</a>
+            <ul>
+              <li><a href="{% url 'gestionnaire' %}">Gestion des A.P</a></li>
+              <li><a href="{% url 'departement' %}">Delits par departements</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="{% url 'animaux' %}">Animaux Protégés</a>
+            <ul>
+              <li><a href="{% url 'partielanimal' %}">Partiellement Protégés</a></li>
+              <li><a href="{% url 'totalanimal' %}">Totalement Protégés</a></li>
+              <li><a href="{% url 'chasse' %}">méthodes et techniques de chasse interdites</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="{% url 'loi' %}">Legislation</a>
+            <ul>
+                <li><a href="{% url 'delit' %}">délits en matière de criminalité faunique</a></li>
+            </ul>
+          </li>
+
+          <li><a href="{% url 'quizz' %}">QuiZZ</a></li>
+          <li><a href="{% url 'forum' %}">Forum </a></li>
+          <li><a href="#"> <img src="{% static 'img/actualités/ameriques.jpg' %}" style="width: 30px ; height:30px"> </a></li>
+          <li><a href="#"> <img src="{% static 'img/icons/france.png' %}" style="width:20px ; height:20px"> </a></li>
+          <li class=""> <a href="{% url 'twilio' %}"> <img src="{% static 'img/actualités/alarm_bell_22298.png' %} " alt=""  style="width: 50%"></a></li>
+            <div class="modal">
+                <div class="modal-content">
+                  <img src="{% static 'img/actualités/alerte.jpg' %}" alt="" width="25%" style="align-self: center;">
+                  <hr>
+                </div>
+
+                <form action="{% url 'generer' %}" method="post" entype="multipart/form-data" >
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="tel" class="control-label">Telephone : </label>
+                      <input type="text" class="form-control" id="tel" placeholder="+243064362084" name="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="comment"> message :</label>
+                      <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="tel" class="control-label">Telephone : </label>
+                      <input type="text" class="form-control" id="tel" placeholder="+243064362084" name="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" class="form-control-file border" name="file">
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-danger" style="float: right;">Quitter</button>
+                </form>
+            </div>
+          </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      
+      <div class="header-social-links d-flex">
+ 
+        <!--a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a-->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" data-bs-interval="4000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url(static/img/actualités/1200x768_gorille-illustration.jpg);">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2><span>ZOOPROTECT</span> Nous luttons!!</h2>
+              <p>la crise actuelle des 
+                crimes perpétrés à l’encontre de la faune sauvage doit être résolue au moyen de politiques inclusives. Pour 
+                être efficaces, les mesures de conservation et de mise en application de la loi doivent prendre en 
+                considération que, dans les zones où certaines espèces sauvages emblématiques, comme le rhinocéros ou 
+                l’éléphant, ont une véritable valeur monétaire, ils sont gérés et protégés du braconnage, principalement grâce 
+                à la collaboration active des acteurs locaux c'est dans ce cadre que ZOOPROTECT nous invite à contribuer tous et activement à la lutte
+                contre la criminalité sur la faune</p>
+              <div class="text-center"><a href="" class="btn-get-started">Lire plus</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url(static/img/actualités/braconnage/braconnage7.jpg);">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2>« conservation par le peuple, et pas sans le peuple »</h2>
+              <p>L’idée principale qui a mené à ce succès a été d’encourager les populations locales à conserver et protéger la 
+                faune sauvage par le biais de programmes communautaires de gestion et d’utilisation durables</p>
+              <div class="text-center"><a href="" class="btn-get-started">Lire plus</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url(static/img/actualités/braconnage/braconnage3.png);">
+          <div class="carousel-container">
+            <div class="carousel-content animate__animated animate__fadeInUp">
+              <h2>« Le braconnage voilà le mal »</h2>
+              <p> Les braconniers sont les pires ennemis des 
+                chasseurs , a-t-elle déclaré. « La chasse est une activité légale et parfaitement légitime, qui permet de mieux 
+                gérer l’environnement. Les chasseurs sont des partenaires clés dans la lutte contre les crimes à l’encontre de 
+                la faune sauvage, tant par les fonds importants qu’ils génèrent que par leur travail sur le terrain. </p>
+              <div class="text-center"><a href="" class="btn-get-started">Lire plus</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about-us" class="about-us">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-right">
+              <img src="{% static 'img/actualités/Drapeau Congo/Carte.png' %} " alt="Carte du Congo">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
+            <p>
+                <h1 style="color:darkgreen;">République du Congo</h1> 
+              <ul>
+                  <li>Capitale politique: Brazzaville</li>
+                  <li>Capitale économique: Pointe-Noire </li>
+                  <li>Population : 5,126 millions de personnes</li>
+                  <li>Superficie : 342.000 Km²</li>
+                  <li>Langue officielle: Français</li>
+                  <li>Langue nationale: Lingala,Kitouba</li>    
+              </ul>
+            </p>
+               <hr>
+          </div>
+          <p class="fst-italic">
+            le Congo-Brazzaville abrite de nombreux hectares de forêts tropicales où vivent de grands singes, dont des gorilles. Il faut dire que c’est tout le bassin du Congo en général qui offre une biodiversité exceptionnelle avec ses 10 000 espèces végétales – dont 3 000 endémiques – et ses nombreuses espèces animales rares et menacées d’extinction – environ 400 espèces de mammifères, 1 086 d’oiseaux, 216 d’amphibiens, 280 de reptiles et plus de 900 espèces de papillons.
+            La République du Congo partage quant à elle son territoire entre les plaines, les plateaux et les massifs montagneux – dont la chaîne du Mayombe – recouverts soit de forêts, soit de savanes. Plusieurs cours d’eaux sillonnent le pays : deux fleuves (le Congo déjà évoqué et le Kouilou-Niari à l’ouest du pays) ainsi que plusieurs dizaines de rivières et cours de taille plus modeste. Au nord-ouest, le lac Télé s’étend sur une superficie de 23 km² au sein d’une réserve communautaire éponyme de 4 400 km². Là vivent plusieurs gorilles des plaines de l’ouest ainsi qu’une quarantaine d’autres espèces de mammifères, dont 14 sont menacées. Au cœur de la réserve de Conkouati se trouve un autre lac d’envergure : le Tchimba.
+            Afin de préserver au mieux cette nature, plusieurs parcs nationaux et réserves naturelles ont été créés au fil des ans. Parmi les sites incontournables se distinguent la réserve de Lesio Louna et les parcs nationaux de Nouabale-Ndoki et Odzala. Y vivent des espèces menacées comme l’éléphant, le chimpanzé, le mandrill et bien d’autres encore.
+          </p>
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <div style="">
+        <div style="margin-left: 850px;">
+           <h2> File d'actualités </h2>
+        </div>
+        <hr>
+    </div>
+
+     <!-- ======= Blog Section ======= -->
+     <section id="blog" class="blog">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-4 entries">
+            <article class="entry">
+              <div class="entry-img">
+                <img src="{% static 'img/actualités/1200x768_elephanteau-mort-sumatra-apres-avoir-blesse-trompe-piege.jpg' %} " alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">Un éléphanteau de Sumatra (indonésie) est mort (...)</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Junior Mboumba</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>
+                  Un éléphanteau de Sumatra ( Indonésie ) est mort après avoir perdu la moitié de sa trompe dans un piège tendu par des braconniers. Le petit éléphant d’un an et demi a succombé à une grave infection, deux jours après avoir été retrouvé par des habitants d’un village dans la province d’Aceh, dans le nord de l’île. « Nous n’avons pas pu le sauver parce que sa blessure était profonde et infectée », a indiqué mardi Agus Arianto, chef de l’agence de protection de la nature d’Aceh. « Nous avons fait de notre mieux pour l’aider. »
+                  Le reste de la trompe de l’éléphanteau avait été amputé pour tenter de le sauver. L’animal, qui appartient à une espèce menacée, semblait alerte après l’opération, selon les images diffusées par les autorités. Mais l’infection a ensuite repris le dessus.
+                  Veuillez fermer la vidéo flottante pour reprendre la lecture ici.
+                  Réduction de l’habitat naturel des éléphants
+                  L’association indonésienne de protection de la nature Walhi, s’inquiétant du nombre important d’éléphants retrouvés morts à Sumatra, a demandé aux autorités locales « une enquête approfondie », dans un message publié sur son compte Twitter.
+                  </p>
+                <div class="read-more">
+                  <a href="blog-single.html">plus</a>
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+
+            <article class="entry">
+
+              <div class="entry-img">
+                <img src="{% static 'img/actualités/1200x768_illustration-chiots.jpg' %} " alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">Lois sur les chiots</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>
+                  Interdiction progressive des animaux sauvages dans les cirques et delphinariums, fin des ventes de chiots et chatons en animalerie ou peines durcies pour sévices ou abandon… Le Sénat a adopté, ce jeudi, par un ultime vote quasi unanime  une proposition de loi contre la maltraitance animale. Il s’agit de « conforter le lien entre les animaux et les hommes », dans la lignée des législations sur les animaux depuis 1850. Le vote a été acquis par 332 voix pour, 1 contre et 10 abstentions.
+                   La majorité LREM-Agir, qui a ardemment poussé ces dispositions, vante une nouvelle « étape historique du combat pour la cause animale », à l’unisson des associations de protection.
+                </p>
+                <div class="read-more">
+                  <a href="blog-single.html">plus</a>
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+          </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <h3 class="sidebar-title">Recherche</h3>
+              <div class="sidebar-item search-form">
+                <form action="">
+                  <input type="text">
+                  <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div><!-- End sidebar search formn-->
+
+              <h3 class="sidebar-title">Categories</h3>
+              <div class="sidebar-item categories">
+                <ul>
+                  <li><a href="#">General <span>(25)</span></a></li>
+                  <li><a href="#">Aires Protégés <span>(12)</span></a></li>
+                  <li><a href="#">Animaux sauvages <span>(5)</span></a></li>
+                  <li><a href="#">Les Forêts <span>(22)</span></a></li>
+                  <li><a href="#">Crimes <span>(8)</span></a></li>
+                  <li><a href="#">Nature <span>(14)</span></a></li>
+                </ul>
+              </div><!-- End sidebar categories-->
+
+              <h3 class="sidebar-title">Actualités recentes</h3>
+              <div class="sidebar-item recent-posts">
+                <div class="post-item clearfix">
+                  <img src="{% static 'img/actualités/braconnage/braconnage2.jpg' %}"  alt="">
+                  <h4><a href="blog-single.html">Braconnage dans un espace protégé en Togo</a></h4>
+                  <time datetime="2020-01-01">Nov 17, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static 'img/actualités/braconnage/braconnage4.jpg' %} " alt="">
+                  <h4><a href="blog-single.html">En france, la laborieuse lutte contre le braconnage...</a></h4>
+                  <time datetime="2020-01-01">Nov 12, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static 'img/actualités/braconnage/braconnage6.jpg' %} " alt="">
+                  <h4><a href="blog-single.html">Cameroun: Gros coup de filet dans le milieu du braconnage... </a></h4>
+                  <time datetime="2020-01-01">Nov 10, 2021</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static 'img/actualités/braconnage/braconnage2.jpg' %} " alt="">
+                  <h4><a href="blog-single.html">Afrique du sud: Un braconnier piétiné par un elephant...</a></h4>
+                  <time datetime="2020-01-01">il y'a 1 mois</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static 'img/actualités/braconnage/braconnage2.jpg' %} " alt="">
+                  <h4><a href="blog-single.html">Sahara : le braconnage massif met en peril la faune...</a></h4>
+                  <time datetime="2020-01-01">Il y'a 1 semaine</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static 'img/actualités/braconnage/braconnage4.jpg' %} " alt="">
+                  <h4><a href="blog-single.html">Eléphantine meurt apres avoir perdu la moitié de sa trompe dans un piege...</a></h4>
+                  <time datetime="2020-01-01">Il y'a 11 heures</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static 'img/actualités/braconnage/braconnage6.jpg' %} " alt="">
+                  <h4><a href="blog-single.html">Les forêts de gabon abritent 95 000 éléphants</a></h4>
+                  <time datetime="2020-01-01">Il y'a 1 jour</time>
+                </div>
+
+                <div class="post-item clearfix">
+                  <img src="{% static 'img/actualités/braconnage/braconnage2.jpg' %} " alt="">
+                  <h4><a href="blog-single.html">Le scinque rugueux, nouvelle cible des braconniers australiens</a></h4>
+                  <time datetime="2020-01-01">JIl y'a 1 semaine</time>
+                </div>
+
+              </div><!-- End sidebar recent posts-->
+
+              <h3 class="sidebar-title">Tags</h3>
+              <div class="sidebar-item tags">
+                <ul>
+                  <li><a href="#">Faune</a></li>
+                  <li><a href="#">Nature</a></li>
+                  <li><a href="#">Animaux sauvages</a></li>
+                  <li><a href="#">Commerce</a></li>
+                  <li><a href="#">Flore</a></li>
+                  <li><a href="#">Espèces rares</a></li>
+                  <li><a href="#">Oiseaux de splendeur</a></li>
+                  <li><a href="#">Serpents</a></li>
+                  <li><a href="#">technologie</a></li>
+                  <li><a href="#">Chasse</a></li>
+                </ul>
+              </div><!-- End sidebar tags-->
+
+            </div><!-- End sidebar -->
+
+          </div><!-- End blog sidebar -->
+
+          <div class="col-lg-4 entries" >
+            <article class="entry">
+
+              <div class="entry-img">
+                <img src="{% static 'img/actualités/1200x768_illustration-cerf.jpg' %} " alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">Un cerf poursuivi rentre dans le terrain</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>
+                  Un incident a eu lieu samedi sur la petite commune de Saint-Sauveur dans l’Oise. Un cerf traqué par les participants d’une chasse à courre s’est retrouvé coincé dans le grillage d’un stade où devait se dérouler un match de football. Les familles présentes sur place ont tenté de repousser les chiens et les chasseurs pour permettre à l’animal de s’enfuir, rapporte France 3 Hauts-de-France.
+                   La scène a été filmée par des personnes présentes sur place et relayée sur les réseaux sociaux par l’association anti-chasse AVA Compiègne. D’après le témoignage des parents des jeunes footballeurs et de l’entraîneur de Saint-Sauveur, les chiens et des « suiveurs » de la chasse auraient pénétré dans l’enceinte du stade. « On a dû attendre que les chasseurs s’éloignent pour débuter le match », assure le coach.
+                   Chasseurs et anti-chasse se renvoient la faute
+                   De son côté, l’équipage de chasse à courre La Futaie des Amis rejette tout incident. « Dès que nous nous sommes approchés du stade, nous avons récupéré nos chiens », assure Alain Drach, le responsable, à Oise Hebdo. Selon lui, quelques suiveurs auraient gagné le parking mais les veneurs à cheval seraient restés en retrait.
+                </p>
+                <div class="read-more">
+                  <a href="blog-single.html">plus</a>
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+
+            <article class="entry">
+
+              <div class="entry-img">
+                <img src="{% static 'img/actualités/1200x768_gorille-illustration.jpg' %} " alt="" class="img-fluid">
+              </div>
+
+              <h2 class="entry-title">
+                <a href="blog-single.html">Gorille de 35 ans mort suite à une maladie</a>
+              </h2>
+
+              <div class="entry-meta">
+                <ul>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">John Doe</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">12 Comments</a></li>
+                </ul>
+              </div>
+
+              <div class="entry-content">
+                <p>
+                  Un autre décès de gorille dans une région voisine
+                  Mugaruka était le dernier de la lignée du célèbre gorille Maheshe, tué par des braconniers mais immortalisé sur un billet de banque par l’ancien président Mobutu Sese Seko. « Il venait régulièrement, de lui-même, nous rendre visite au quartier général du parc, faisant le bonheur des visiteurs », a ajouté Hubert Mulongoy.
+                </p>
+                <div class="read-more">
+                  <a href="blog-single.html">plus</a>
+                </div>
+              </div>
+
+            </article><!-- End blog entry -->
+
+            <div class="blog-pagination">
+              <ul class="justify-content-center">
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+              </ul>
+            </div>
+          </div><!-- End blog entries list -->
+        </div>
+
+      </div>
+    </section><!-- End Blog Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>ZOOPROTECT</h3>
+            <p>
+              09 Rue Ngouendi<br>
+              Brazzaville, Talangai<br>
+              Congo <br><br>
+              <strong>Phone:</strong>+242-06-436-20-84<br>
+              <strong>Email:</strong>mongochadrac@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Liens Utiles</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="index.html">Acceuil</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="aire.html">Aires Protegés</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="animaux.html">Animaux Protégés</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="lois.html">Legislation</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="forum.html">forum</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Nos Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Design Web</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement Web</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement mobile</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Development Desktop</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Joindre notre boite aux lettre</h4>
+            <p>fais un geste pour l'évolution de la faune.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>ZOOPROTECT</span></strong>. All Rights Reserved
+        </div>
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  
+  <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/aos/aos.js' %} "></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %} "></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %} "></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %} "></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %} "></script>
+  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %} "></script>
+  <script src="{% static 'js/jquery-3.6.0.js' %} "></script>
+  <script src="{% static 'js/quizz.js' %} "></script>
+ 
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %} "></script>
+
+</body>
+
+</html>

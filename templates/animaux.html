@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css'%} " rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %} " rel="stylesheet">
+
+</head>
+<body>
+<!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="{% url 'racine' %}"><span>ZOO</span><img src="{% static 'img/actualités/logo.png' %}" alt="" style="background-size: cover; width: 30%;"> PROTECT</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="{% url 'racine' %}" class="active">Acceuil</a></li>
+
+          <li class="dropdown"><a href="{% url 'ap' %}">Aires Protégés</a>
+            <ul>
+              <li><a href="{% url 'gestionnaire' %}">Gestion des A.P</a></li>
+              <li><a href="{% url 'departement' %}">Delits par departements</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="{% url 'animaux' %}">Animaux Protégés</a>
+            <ul>
+              <li><a href="{% url 'partielanimal' %}">Partiellement Protégés</a></li>
+              <li><a href="{% url 'totalanimal' %}">Totalement Protégés</a></li>
+              <li><a href="{% url 'chasse' %}">méthodes et techniques de chasse interdites</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="{% url 'loi' %}">Legislation</a>
+            <ul>
+                <li><a href="{% url 'delit' %}">délits en matière de criminalité faunique</a></li>
+            </ul>
+          </li>
+
+          <li><a href="{% url 'quizz' %}">QuiZZ</a></li>
+          <li><a href="{% url 'forum' %}">Forum </a></li>
+          <li><a href="#"> <img src="{% static 'img/actualités/ameriques.jpg' %}" style="width:30px ; height:30px"> </a></li>
+          <li><a href="#"> <img src="{% static 'img/icons/france.png' %}" style="width:20px ; height:20px"> </a></li>
+
+          <li class=""> <a href="{% url 'twilio' %}"> <img src="{% static 'img/actualités/alarm_bell_22298.png' %} " alt=""  style="width: 50%"></a></li>
+            <div class="modal">
+                <div class="modal-content">
+                  <img src="{% static 'img/actualités/alerte.jpg' %}" alt="" width="25%" style="align-self: center;">
+                  <hr>
+                </div>
+
+                <form action="{% url 'generer' %}" method="post" entype="multipart/form-data" >
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="tel" class="control-label">Telephone : </label>
+                      <input type="text" class="form-control" id="tel" placeholder="+243064362084" name="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="comment"> message :</label>
+                      <textarea class="form-control" rows="5" id="comment" name="description"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="tel" class="control-label">Telephone : </label>
+                      <input type="text" class="form-control" id="tel" placeholder="+243064362084" name="tel" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" class="form-control-file border" name="file">
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    <button type="submit" class="btn btn-danger" style="float: right;">Quitter</button>
+                </form>
+            </div>
+          </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      
+      <div class="header-social-links d-flex">
+ 
+        <!--a href="#" class="twitter"><i class="bu bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bu bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bu bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bu bi-linkedin"></i></i></a-->
+
+    </div>
+  </header><!-- End Header -->   
+
+      <footer id="footer">
+
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+    
+              <div class="col-lg-3 col-md-6 footer-contact">
+                <h3>ZOOPROTECT</h3>
+                <p>
+                  09 Rue Ngouendi<br>
+                  Brazzaville, Talangai<br>
+                  Congo <br><br>
+                  <strong>Phone:</strong>+242-06-436-20-84<br>
+                  <strong>Email:</strong>mongochadrac@gmail.com<br>
+                </p>
+              </div>
+    
+              <div class="col-lg-2 col-md-6 footer-links">
+                <h4>Liens Utiles</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="index.html">Acceuil</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="aire.html">Aires Protegés</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="animaux.html">Animaux Protégés</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="lois.html">Legislation</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="forum.html">forum</a></li>
+                </ul>
+              </div>
+    
+              <div class="col-lg-3 col-md-6 footer-links">
+                <h4>Nos Services</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Design Web</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement Web</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Developpement mobile</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Development Desktop</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                </ul>
+              </div>
+    
+              <div class="col-lg-4 col-md-6 footer-newsletter">
+                <h4>Joindre notre boite aux lettre</h4>
+                <p>fais un geste pour l'évolution de la faune.</p>
+                <form action="" method="post">
+                  <input type="email" name="email"><input type="submit" value="Subscribe">
+                </form>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+    
+        <div class="container d-md-flex py-4">
+    
+          <div class="me-md-auto text-center text-md-start">
+            <div class="copyright">
+              &copy; Copyright <strong><span>ZOOPROTECT</span></strong>. All Rights Reserved
+            </div>
+          </div>
+          <div class="social-links text-center text-md-right pt-3 pt-md-0">
+            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          </div>
+        </div>
+      </footer><!-- End Footer -->  
+
+      
+ <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/aos/aos.js' %} "></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %} "></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %} "></script>
+  <script src="{% static 'vendor/php-email-form/validate.js' %} "></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %} "></script>
+  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %} "></script>
+  <script src="{% static 'js/jquery-3.6.0.js' %} "></script>
+  <script src="{% static 'js/quizz.js' %} "></script>
+  
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main.js' %} "></script>
+
+</body>
+</html>
